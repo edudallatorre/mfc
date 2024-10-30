@@ -1,13 +1,18 @@
 <?php
 
+// Verifica se o botão 'btnSubmit' foi clicado (ou seja, se o formulário foi enviado)
 if (isset($_POST['btnSubmit'])) {
+    // Armazena os valores recebidos do formulário nas variáveis $nome, $sobrenome e $idade
     $nome = $_POST['nome'];
     $sobrenome = $_POST['sobrenome'];
     $idade = $_POST['idade'];
 
+    // Verifica se algum campo está vazio
     if ($nome == '' || $sobrenome == '' || $idade == '') {
+        // Exibe uma mensagem se algum campo não estiver preenchido
         echo "Favor preencher todos os dados";
     } else {
+        // Exibe os dados coletados do formulário
         echo "Nome: " . $nome . " " . $sobrenome;
         echo " Idade: " . $idade;
     }
