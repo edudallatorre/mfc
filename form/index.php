@@ -7,6 +7,11 @@ if (isset($_POST['btnSubmit'])) {
     $sobrenome = $_POST['sobrenome'];
     $idade = $_POST['idade'];
 
+    validarCampos($nome, $sobrenome, $idade);
+}
+
+function validarCampos($nome, $sobrenome, $idade) {
+
     // Verifica se algum campo está vazio
     if ($nome == '' || $sobrenome == '' || $idade == '') {
         // Exibe uma mensagem se algum campo não estiver preenchido
@@ -28,7 +33,7 @@ if (isset($_POST['btnSubmit'])) {
     <title>Form</title>
 </head>
 <body>
-    <form action="/" method="post">
+    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
         <label>Nome</label>
         <input type="text" name="nome">
         <label>Sobrenome</label>
